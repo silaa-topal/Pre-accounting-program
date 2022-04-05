@@ -1,0 +1,34 @@
+﻿@model erpV2.Models.Classes.SalesTransaction
+@{
+    ViewBag.Title = "UpdateSales";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Update Sales Transaction</h2>
+<br />
+
+<form asp-controller="Sales" asp-action="UpdateSales" class="form-group" method="post">
+    @Html.HiddenFor(x => x.SalesID)
+    @Html.DisplayName("Product")
+    @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.prod, "Choose Product", new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Customer")
+    @Html.DropDownListFor(x => x.CustomerID, (List<SelectListItem>)ViewBag.cust, "Choose Customer", new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Personnel")
+    @Html.DropDownListFor(x => x.PersonnelID, (List<SelectListItem>)ViewBag.pers, "Choose Personnel", new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Unit Price")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Quantity")
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Total Price")
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-secondary">Save</button>
+</form>

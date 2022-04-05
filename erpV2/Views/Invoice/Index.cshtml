@@ -1,0 +1,42 @@
+﻿@using erpV2.Models.Classes;
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Serial No</th>
+        <th>Row No</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Tax Office</th>
+        <th>Recipent</th>
+        <th>Consigner</th>
+        <th>Total Price</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach(var i in Model)
+    {
+    <tr>
+        <td>@i.InvoiceID</td>
+        <td>@i.InvoiceSerialNo</td>
+        <td>@i.InvoiceRowNo</td>
+        <td>@i.InvoiceDate</td>
+        <td>@i.InvoiceTime</td>
+        <td>@i.TaxOffice</td>
+        <td>@i.Recipient</td>
+        <td>@i.Consigner</td>
+        <td>@i.Total</td>
+        
+        <td><a href="/Invoice/BringInvoice/@i.InvoiceID" class="btn btn-success" >Update</a></td>
+        <td><a href="/Invoice/InvoiceDetails/@i.InvoiceID" class="btn btn-warning" style="color:white">Details</a></td>
+    </tr>
+    }
+</table>
+<a href="/Invoice/NewInvoice/" class="btn btn-secondary">Add Invoice</a>

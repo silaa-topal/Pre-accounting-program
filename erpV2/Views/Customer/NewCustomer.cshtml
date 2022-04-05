@@ -1,0 +1,29 @@
+﻿@model erpV2.Models.Classes.Customer
+@{
+    ViewBag.Title = "NewCustomer";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+<h2>New Customer</h2>
+<br/>
+
+<form class="form-group" method="post">
+    <div asp-validation-summary="All"></div>
+    @Html.Label("First Name")
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerName, " ", new { @style = " color:red " })
+    <br />
+    @Html.Label("Last Name")
+    @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerSurname, " ", new { @style = " color:red " })
+    <br />
+    @Html.Label("City")
+    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+    <br />
+    @Html.Label("Email Address")
+    @Html.TextBoxFor(x => x.CustomerMailAddress, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerMailAddress, " ", new { @style = " color:red " })
+    <br />
+
+    <button class="btn btn-secondary">Save</button>
+</form>

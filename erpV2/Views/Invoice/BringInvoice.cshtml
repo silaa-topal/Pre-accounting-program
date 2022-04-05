@@ -1,0 +1,40 @@
+﻿@model erpV2.Models.Classes.Invoice
+@{
+    ViewBag.Title = "BringInvoice";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Update Invoice</h2>
+<br />
+
+@using (Html.BeginForm("UpdateInvoice", "Invoice", FormMethod.Post))
+{
+<div class="form-group">
+
+
+    @Html.HiddenFor(x => x.InvoiceID)
+    @Html.Label("Serial No")
+    @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Row No")
+    @Html.TextBoxFor(x => x.InvoiceRowNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Time")
+    @Html.TextBoxFor(x => x.InvoiceTime, new { @class = "form-control" })
+    <br />
+    @Html.Label("Consigner")
+    @Html.TextBoxFor(x => x.Consigner, new { @class = "form-control" })
+    <br />
+    @Html.Label("Recipient")
+    @Html.TextBoxFor(x => x.Recipient, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tax Office")
+    @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-secondary">Save</button>
+</div>
+}

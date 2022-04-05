@@ -1,0 +1,20 @@
+﻿@model erpV2.Models.Classes.Category
+@{
+    ViewBag.Title = "BringCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Category</h2>
+<br/>
+@using (Html.BeginForm("EditCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x =>x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new {@class="form-control" })
+        @Html.HiddenFor(x => x.CategoryID) 
+        @*id null dönmemesi için*@
+    </div>
+    <button class="btn btn-warning">Update</button>
+}
+

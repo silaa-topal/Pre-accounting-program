@@ -1,0 +1,37 @@
+﻿@using erpV2.Models.Classes;
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "PersonnelDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Sales</h2>
+<br />
+
+<table class="table table-condensed">
+    <tr>
+        <th>Transaction ID</th>
+        <th>Product</th>
+        <th>Customer</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Date</th>
+        <th>Print</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.SalesID</td>
+            <td>@s.Product.ProductName</td>
+            <td>@s.Customer.CustomerName @s.Customer.CustomerSurname</td>
+            <td>@s.Price</td>
+            <td>@s.Quantity</td>
+            <td>@s.TotalPrice</td>
+            <td>@s.Date</td>
+            <td><a href="#" class="btn btn-default" style="background-color:cornflowerblue">Print</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Personnel/Index/" class="btn btn-dark">Back</a>

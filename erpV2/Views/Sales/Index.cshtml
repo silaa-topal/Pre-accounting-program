@@ -1,0 +1,77 @@
+﻿@model IEnumerable<erpV2.Models.Classes.SalesTransaction>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+<h2>Sales Transactions</h2>
+<br/>
+<table class="table table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayName("Sales ID")
+        </th>
+        <th>
+            @Html.DisplayName("Customer")
+        </th>
+        <th>
+            @Html.DisplayName("Personnel")
+        </th>
+        <th>
+            @Html.DisplayName("Product")
+        </th>
+        <th>
+            @Html.DisplayName("Date")
+        </th>
+        <th>
+            @Html.DisplayName("Quantity")
+        </th>
+        <th>
+            @Html.DisplayName("Unit price")
+        </th>
+        <th>
+            @Html.DisplayName("Total price")
+        </th>
+        <th>Update</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesID)
+        </td>
+        <td>
+            <div>
+                @(item.Customer.CustomerName + " " + item.Customer.CustomerSurname)
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personnel.PersonnelFirstname) @Html.DisplayFor(modelItem => item.Personnel.PersonnelLastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            <a href="/Sales/UpdateSales/@item.SalesID" class="btn btn-success">Update</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<a href="/Sales/NewSales/" class="btn btn-secondary">Add</a>
+<a href="/Sales/SList/" class="btn btn-secondary">Print</a>
+

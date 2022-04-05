@@ -1,0 +1,28 @@
+﻿@model erpV2.Models.Classes.InvoiceItem
+@{
+    ViewBag.Title = "NewItem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>New Invoice Item</h2>
+
+<form class="form-group" method="post">
+    @Html.DisplayName("Invoice ID")
+    @Html.TextBoxFor(x => x.InvoiceID, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Description")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Quantity")
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Unit Price")
+    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+    <br />
+    @Html.DisplayName("Total Price")
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-secondary">Add</button>
+</form>
+

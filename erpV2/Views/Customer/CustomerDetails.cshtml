@@ -1,0 +1,40 @@
+﻿@using erpV2.Models.Classes;
+@model List<SalesTransaction>
+@{
+    ViewBag.Title = "CustomerDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Purchases</h2>
+<br />
+
+@*@if(@ViewBag.result == null){
+   Html.ValidationMessage("No purchases");
+}
+else {*@ 
+    <table class="table table-bordered">
+        <tr>
+            <th>Transaction ID</th>
+            <th>Product</th>
+            <th>Personnel</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Date</th>
+            <th>Print</th>
+        </tr>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.SalesID</td>
+                <td>@p.Product.ProductName</td>
+                <td>@p.Personnel.PersonnelFirstname @p.Personnel.PersonnelLastname</td>
+                <td>@p.Price</td>
+                <td>@p.Quantity</td>
+                <td>@p.TotalPrice</td>
+                <td>@p.Date</td>
+                <td><a href="#" class="btn btn-default" style="background-color:cornflowerblue">Print</a></td>
+            </tr>
+        }
+    
+</table>

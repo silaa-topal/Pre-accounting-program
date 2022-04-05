@@ -1,0 +1,33 @@
+﻿@model erpV2.Models.Classes.Personnel
+@{
+    ViewBag.Title = "BringPersonnel";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Update Personnel</h2>
+<br />
+
+@using (Html.BeginForm("UpdatePersonnel", "Personnel", FormMethod.Post))
+{
+<div class="form-group">
+
+   
+    @Html.HiddenFor(x => x.PersonnelID)
+    @Html.Label("First Name")
+    @Html.TextBoxFor(x => x.PersonnelFirstname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Last Name")
+    @Html.TextBoxFor(x => x.PersonnelLastname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Title")
+    @Html.TextBoxFor(x => x.PersonnelTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Email Address")
+    @Html.TextBoxFor(x => x.PersonnelEmailAddress, new { @class = "form-control" })
+    <br />
+    @Html.Label("Status")
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-secondary">Save</button>
+</div>
+}

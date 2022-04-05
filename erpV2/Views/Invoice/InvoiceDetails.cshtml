@@ -1,0 +1,35 @@
+﻿@using erpV2.Models.Classes;
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "InvoiceDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+<h2>Invoice Details</h2>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+    <tr>
+        <td>@p.InvoiceItemID</td>
+        <td>@p.Description</td>
+        <td>@p.Quantity</td>
+        <td>@p.UnitPrice</td>
+        <td>@p.TotalPrice</td>
+
+        <td><a href="#" class="btn btn-default" style="background-color:cornflowerblue">Print</a></td>
+    </tr>
+    }
+
+</table>
+
+<a href="/Invoice/NewItem/" class="btn btn-secondary">New Invoice Item</a>
+
+

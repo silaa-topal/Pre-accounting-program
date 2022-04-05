@@ -1,0 +1,38 @@
+﻿@using erpV2.Models.Classes;
+@model List<Personnel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Title</th>
+        <th>Email Address</th>      
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+        @foreach(var p in Model)
+        {
+    <tr>
+        <td>@p.PersonnelID</td>
+        <td>@p.PersonnelFirstname</td>
+        <td>@p.PersonnelLastname</td>
+        <td>@p.PersonnelTitle</td>
+        <td>@p.PersonnelEmailAddress</td>
+        <td><a href="/Personnel/DeletePersonnel/@p.PersonnelID" class="btn btn-danger">Delete</a></td>
+        <td><a href="/Personnel/BringPersonnel/@p.PersonnelID" class="btn btn-success">Update</a></td>
+        <td><a href="/Personnel/PersonnelDetails/@p.PersonnelID" class="btn btn-warning">Details</a></td>
+    </tr>
+        }
+   
+</table>
+
+<a href="/Personnel/NewPersonnel/" class="btn btn-secondary">New Personnel</a>
+
+

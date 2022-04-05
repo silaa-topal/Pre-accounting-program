@@ -1,0 +1,33 @@
+﻿@model erpV2.Models.Classes.Invoice
+@{
+    ViewBag.Title = "NewInvoice";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+<h2>New Invoice</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.Label("Serial No")
+    @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Row No")
+    @Html.TextBoxFor(x => x.InvoiceRowNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Time")
+    @Html.TextBoxFor(x => x.InvoiceTime, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tax Office")
+    @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Consigner)
+    @Html.TextBoxFor(x => x.Consigner, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Recipient)
+    @Html.TextBoxFor(x => x.Recipient, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-secondary">Save</button>
+</form>
